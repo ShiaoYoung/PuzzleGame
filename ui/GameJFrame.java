@@ -21,14 +21,28 @@ public class GameJFrame extends JFrame{
     }
 
     private void initImage() {
-        //
-        ImageIcon image = new ImageIcon("D:\\JAVA\\PazzleGame\\image\\animal\\animal3\\all.jpg");
 
-        //
-        JLabel jLabel = new JLabel(image);
+        int number = 1;
+        for (int i = 0; i < 4; i++) {
+            for (int j = 0; j < 4; j++) {
+                //通过路径获取图片
+                ImageIcon image = new ImageIcon("D:\\JAVA\\PazzleGame\\image\\animal\\animal3\\" + number + ".jpg");
 
-        //
-        this.add(jLabel);
+                //将图片放到JLabel中
+                JLabel jLabel = new JLabel(image);
+
+                //设置图片位置
+                jLabel.setBounds(105 * j,105 * i,105,105);
+
+                //将JLabel放到JFrame的界面中
+                this.getContentPane().add(jLabel);
+
+                number++;
+
+            }
+        }
+
+
     }
 
     private void initMenu() {
@@ -70,5 +84,7 @@ public class GameJFrame extends JFrame{
         this.setLocationRelativeTo(null);
         //设置关闭窗口的操作
         this.setDefaultCloseOperation(3);
+        //取消组件默认居中
+        this.setLayout(null);
     }
 }
